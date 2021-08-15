@@ -42,7 +42,8 @@ class SettingsConfig
             'incrementing' => 0,
             'preventsLazyLoading' => 0,
             'exists'=> 0,
-         'wasRecentlyCreated' => 0];
+            'timestamps'=> 0,
+            'wasRecentlyCreated' => 0];
         $this->settingsClass = $settingsClass;
         $this->reflectionProperties = collect(
             (new ReflectionClass($settingsClass))->getProperties(ReflectionProperty::IS_PUBLIC)
