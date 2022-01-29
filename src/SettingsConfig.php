@@ -48,6 +48,7 @@ class SettingsConfig
             'mediaCollections' => 0,
             'deletePreservingMedia' => 0,
             'unAttachedMediaLibraryItems' => 0,
+
         ];
         $this->settingsClass = $settingsClass;
         $this->reflectionProperties = collect(
