@@ -54,7 +54,6 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\LaravelSettings\\LaravelSettingsServiceProvider"
             ]
         }
     },
