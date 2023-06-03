@@ -14,7 +14,7 @@ class SettingsCache
 
     private ?string $store;
 
-    private ?string $prefix;
+    public static ?string $prefix;
 
     public function __construct(
         bool $enabled,
@@ -23,7 +23,7 @@ class SettingsCache
     ) {
         $this->enabled = $enabled;
         $this->store = $store;
-        $this->prefix = $prefix;
+        self::$prefix = $prefix;
     }
 
     public function isEnabled(): bool
@@ -50,7 +50,7 @@ class SettingsCache
 
         $settings = unserialize($serialized);
 
-        if (! $settings instanceof Settings) {
+        if (!$settings instanceof Settings) {
             throw new CouldNotUnserializeSettings();
         }
 
@@ -81,8 +81,7 @@ class SettingsCache
 
     private function resolveCacheKey(string $settingsClass): string
     {
-        $prefix = $this->prefix ? "{$this->prefix}." : '';
-
+        $prefix = self::$prefix ? "{" . self::$prefix . "}." : '';
         return "{$prefix}settings.{$settingsClass}";
     }
 }
